@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакты Bean&Leaf: адрес, телефон, e-mail, форма обратной связи.">
+  <title>Контакты</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">Shop</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">Главная</a></li>
+          <li class="site-nav__item"><a href="catalog.html" class="site-nav__link">Каталог</a></li>
+          <li class="site-nav__item"><a href="product.html" class="site-nav__link">Товар</a></li>
+          <li class="site-nav__item"><a href="order.html" class="site-nav__link">Заявка</a></li>
+          <li class="site-nav__item"><a href="contacts.html" class="site-nav__link site-nav__link--active">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">Контакты</li>
+      </ol>
+    </nav>
+
+    <h1 class="page-title" id="contacts">Контакты</h1>
+
+    <div class="contacts-layout">
+      <section class="contacts-info">
+        <h2 class="contacts-info__title">Как нас найти</h2>
+        <ul class="contacts-info__list">
+          <li><strong>Адрес:</strong> г. Москва, ул. Кофейная, 15</li>
+          <li><strong>Телефон:</strong> <a href="tel:+79991234567">+7 999 123-45-67</a></li>
+          <li><strong>E-mail:</strong> <a href="mailto:hello@beanleaf.ru">hello@beanleaf.ru</a></li>
+          <li><strong>Часы работы:</strong> пн–вс, 10:00–21:00</li>
+        </ul>
+
+        <a href="order.html" class="button button--primary">Оставить заявку</a>
+      </section>
+
+      <section class="contacts-form">
+        <h2 class="contacts-form__title">Обратная связь</h2>
+        <form class="order-form order-form--page" id="orderForm" novalidate>
+          <div class="order-form__field">
+            <label for="name">Имя *</label>
+            <input type="text" id="name" name="name" required minlength="2">
+          </div>
+          <div class="order-form__field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="order-form__field">
+            <label for="message">Сообщение *</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="order-form__field order-form__field--checkbox">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Согласен с обработкой данных *</label>
+          </div>
+          <div class="order-form__actions">
+            <button type="submit" class="button button--primary">Отправить</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="success-message" id="successMessage" hidden>
+      Сообщение отправлено. Спасибо!
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">© 2026 Учебный проект.</p>
+      <p class="site-footer__author">Чумак Артём, ЭФБО-09-25</p>
+    </div>
+  </footer>
+
+  <a href="#" class="to-top" aria-label="Наверх">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

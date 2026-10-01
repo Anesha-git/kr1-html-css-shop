@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог кофе и аксессуаров Bean&Leaf: зерно, дрип-пакеты, чай, посуда.">
+  <title>Каталог</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">Shop</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">Главная</a></li>
+          <li class="site-nav__item"><a href="catalog.html" class="site-nav__link site-nav__link--active">Каталог</a></li>
+          <li class="site-nav__item"><a href="product.html" class="site-nav__link">Товар</a></li>
+          <li class="site-nav__item"><a href="order.html" class="site-nav__link">Заявка</a></li>
+          <li class="site-nav__item"><a href="contacts.html" class="site-nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">Каталог</li>
+      </ol>
+    </nav>
+
+    <h1 class="page-title">Каталог товаров</h1>
+
+    <div class="catalog-layout">
+      <!-- STICKY ФИЛЬТР -->
+      <aside class="catalog-filters">
+        <h2 class="catalog-filters__title">Фильтры</h2>
+
+        <fieldset class="catalog-filters__group">
+          <legend class="catalog-filters__legend">Категория</legend>
+          <label class="catalog-filters__option"><input type="checkbox" checked> Кофе в зёрнах</label>
+          <label class="catalog-filters__option"><input type="checkbox"> Молотый кофе</label>
+          <label class="catalog-filters__option"><input type="checkbox"> Чай</label>
+          <label class="catalog-filters__option"><input type="checkbox"> Аксессуары</label>
+        </fieldset>
+
+        <fieldset class="catalog-filters__group">
+          <legend class="catalog-filters__legend">Обжарка</legend>
+          <label class="catalog-filters__option"><input type="radio" name="roast"> Светлая</label>
+          <label class="catalog-filters__option"><input type="radio" name="roast"> Средняя</label>
+          <label class="catalog-filters__option"><input type="radio" name="roast"> Тёмная</label>
+        </fieldset>
+
+        <button type="button" class="button button--primary catalog-filters__apply">Применить</button>
+        <button type="button" class="button button--ghost catalog-filters__reset">Сбросить</button>
+      </aside>
+
+      <!-- СЕТКА КАРТОЧЕК -->
+      <section class="catalog-products">
+        <div class="product-grid">
+          <article class="product-card product-card--hit">
+            <span class="product-card__badge">Хит</span>
+            <h3 class="product-card__title">Эфиопия Иргачефф</h3>
+            <p class="product-card__description">Жасмин, цитрус, яркая кислотность.</p>
+            <p class="product-card__price">1 200 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--discount">−15%</span>
+            <h3 class="product-card__title">Колумбия Уила</h3>
+            <p class="product-card__description">Карамель, орех, мягкое тело.</p>
+            <p class="product-card__price"><s>1 050 ₽</s> 900 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <span class="product-card__badge product-card__badge--new">Новинка</span>
+            <h3 class="product-card__title">Кения AA</h3>
+            <p class="product-card__description">Чёрная смородина, тростниковый сахар.</p>
+            <p class="product-card__price">1 450 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <h3 class="product-card__title">Бразилия Сантос</h3>
+            <p class="product-card__description">Шоколад, миндаль, плотное тело.</p>
+            <p class="product-card__price">950 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+
+          <article class="product-card">
+            <h3 class="product-card__title">Гватемала Антигуа</h3>
+            <p class="product-card__description">Какао, специи, дымные ноты.</p>
+            <p class="product-card__price">1 300 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+
+          <article class="product-card product-card--hit">
+            <span class="product-card__badge">Хит</span>
+            <h3 class="product-card__title">Дрип-пакеты (10 шт.)</h3>
+            <p class="product-card__description">Кофе в дорогу — заваривается за 3 минуты.</p>
+            <p class="product-card__price">700 ₽</p>
+            <a href="product.html" class="product-card__button button button--primary">Подробнее</a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">© 2026 Учебный проект.</p>
+      <p class="site-footer__author">Чумак Артём, ЭФБО-09-25</p>
+    </div>
+  </footer>
+
+  <a href="#" class="to-top" aria-label="Наверх">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

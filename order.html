@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформление заявки на кофе и аксессуары Bean&Leaf.">
+  <title>Оформление заявки</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">Shop</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">Главная</a></li>
+          <li class="site-nav__item"><a href="catalog.html" class="site-nav__link">Каталог</a></li>
+          <li class="site-nav__item"><a href="product.html" class="site-nav__link">Товар</a></li>
+          <li class="site-nav__item"><a href="order.html" class="site-nav__link site-nav__link--active">Заявка</a></li>
+          <li class="site-nav__item"><a href="contacts.html" class="site-nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">Заявка</li>
+      </ol>
+    </nav>
+
+    <h1 class="page-title">Оформление заявки</h1>
+
+    <section class="order-section">
+      <form class="order-form order-form--page" id="orderForm" novalidate>
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label for="name">Имя *</label>
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Иван">
+          </div>
+          <div class="order-form__field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="ivan@mail.ru">
+          </div>
+        </div>
+
+        <div class="order-form__row">
+          <div class="order-form__field">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 999 123-45-67">
+            <small>Формат: +7 XXX XXX-XX-XX</small>
+          </div>
+          <div class="order-form__field">
+            <label for="date">Дата доставки</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+
+        <div class="order-form__field">
+          <label for="topic">Тема заявки / товар *</label>
+          <select id="topic" name="topic" required>
+            <option value="">— выберите —</option>
+            <option value="ethiopia">Эфиопия Иргачефф</option>
+            <option value="colombia">Колумбия Уила</option>
+            <option value="kenya">Кения AA</option>
+            <option value="drip">Дрип-пакеты</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" name="comment" rows="4" placeholder="Что вам интересно?"></textarea>
+        </div>
+
+        <div class="order-form__field order-form__field--checkbox">
+          <input type="checkbox" id="agree" name="agree" required>
+          <label for="agree">Согласен с обработкой персональных данных *</label>
+        </div>
+
+        <div class="order-form__actions">
+          <button type="submit" class="button button--primary">Отправить заявку</button>
+          <button type="reset" class="button button--ghost">Очистить</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="success-message" id="successMessage" hidden>
+      Спасибо! Заявка отправлена — мы свяжемся с вами в течение дня.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">© 2026 Учебный проект.</p>
+      <p class="site-footer__author">Чумак Артём, ЭФБО-09-25</p>
+    </div>
+  </footer>
+
+  <a href="#" class="to-top" aria-label="Наверх">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,74 +1,99 @@
-// Получаем модальное окно по id.
-const orderDialog = document.getElementById('order-dialog');
+/* =========================================================
+   Bean&Leaf — минимальная JS-логика для КР №1
+   Отвечает только за открытие/закрытие модального окна
+   и показ сообщения об успешной отправке формы.
+   ========================================================= */
 
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
+(function () {
+  'use strict';
 
-// Получаем кнопку закрытия модального окна.
-const closeDialogButton = document.getElementById('close-order-dialog');
+  const dialog = document.getElementById('orderDialog');
+  const form = document.getElementById('orderForm');
+  const successMessage = document.getElementById('successMessage');
 
-// Получаем скрытое поле, в которое будет записан выбранный товар.
-const selectedProductInput = document.getElementById('selected-product');
-
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
-  });
-});
-
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
-
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
-
-// Получаем сообщение об успешной отправке.
-const successMessage = document.getElementById('success-message');
-
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
-
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
+  /* ---------- ОТКРЫТИЕ МОДАЛКИ ---------- */
+  document.querySelectorAll('[data-open-order]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (dialog) {
+        dialog.showModal();
+        document.body.style.overflow = 'hidden';
       }
     });
+  });
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
+  /* ---------- ЗАКРЫТИЕ МОДАЛКИ ---------- */
+  document.querySelectorAll('[data-close-order]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (dialog) dialog.close();
+      document.body.style.overflow = '';
+    });
+  });
+
+  if (dialog) {
+    dialog.addEventListener('close', function () {
+      document.body.style.overflow = '';
+    });
+
+    /* Закрытие по клику на backdrop */
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
   }
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+  /* ---------- ОТПРАВКА ФОРМЫ ---------- */
+  if (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-  // Очищаем форму.
-  orderForm.reset();
+      /* Сбрасываем предыдущие подсветки ошибок */
+      form.querySelectorAll('[aria-invalid="true"]').forEach(function (el) {
+        el.removeAttribute('aria-invalid');
+      });
 
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
+      let valid = true;
+
+      form.querySelectorAll('[required]').forEach(function (field) {
+        const value = field.type === 'checkbox' ? field.checked : field.value.trim();
+
+        if (!value) {
+          valid = false;
+          field.setAttribute('aria-invalid', 'true');
+        }
+
+        /* Дополнительная проверка e-mail */
+        if (field.type === 'email' && value && !/^\S+@\S+\.\S+$/.test(field.value)) {
+          valid = false;
+          field.setAttribute('aria-invalid', 'true');
+        }
+
+        /* Дополнительная проверка телефона */
+        if (field.type === 'tel' && value && !/^\+?[\d\s\-()]{10,}$/.test(field.value)) {
+          valid = false;
+          field.setAttribute('aria-invalid', 'true');
+        }
+      });
+
+      if (!valid) {
+        form.querySelector('[aria-invalid="true"]')?.focus();
+        return;
+      }
+
+      /* Успешная отправка */
+      form.reset();
+
+      if (dialog && dialog.open) {
+        dialog.close();
+      }
+
+      if (successMessage) {
+        successMessage.hidden = false;
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () {
+          successMessage.hidden = true;
+        }, 5000);
+      }
+    });
+  }
+})();

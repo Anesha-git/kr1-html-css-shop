@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Эфиопия Иргачефф — свежеобжаренный кофе с нотами жасмина и цитруса. Характеристики, цена, заказ.">
+  <title>Эфиопия Иргачефф — Bean&Leaf</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__logo">Shop</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">Главная</a></li>
+          <li class="site-nav__item"><a href="catalog.html" class="site-nav__link">Каталог</a></li>
+          <li class="site-nav__item"><a href="product.html" class="site-nav__link site-nav__link--active">Товар</a></li>
+          <li class="site-nav__item"><a href="order.html" class="site-nav__link">Заявка</a></li>
+          <li class="site-nav__item"><a href="contacts.html" class="site-nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item"><a href="catalog.html" class="breadcrumbs__link">Каталог</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">Эфиопия Иргачефф</li>
+      </ol>
+    </nav>
+
+    <article class="product">
+      <div class="product__media">
+        <div class="product__image" role="img" aria-label="Упаковка кофе Эфиопия Иргачефф">
+          <span class="product__image-placeholder"></span>
+          <span class="product-card__badge product-card__badge--new">Новинка</span>
+        </div>
+      </div>
+
+      <div class="product__info">
+        <h1 class="product__title">Эфиопия Иргачефф</h1>
+        <p class="product__price">1 200 ₽ <span class="product__unit">/ 250 г</span></p>
+        <p class="product__description">
+          Светлая обжарка, регион Иргачефф. Вкус яркий и цветочный: жасмин, лимон, чёрный чай.
+          Идеально для воронки V60 и аэропресса.
+        </p>
+
+        <div class="product__actions">
+          <button type="button" class="button button--primary" data-open-order>Оставить заявку</button>
+          <a href="order.html" class="button button--ghost">Оформить на странице</a>
+        </div>
+      </div>
+    </article>
+
+    <section class="section">
+      <h2 class="section__title">Характеристики</h2>
+      <div class="table-wrapper">
+        <table class="spec-table">
+          <caption class="spec-table__caption">Технические характеристики кофе</caption>
+          <thead>
+            <tr>
+              <th scope="col">Параметр</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Страна</th><td>Эфиопия</td></tr>
+            <tr><th scope="row">Регион</th><td>Иргачефф</td></tr>
+            <tr><th scope="row">Обжарка</th><td>Светлая</td></tr>
+            <tr><th scope="row">Обработка</th><td>Мытая</td></tr>
+            <tr><th scope="row">Дескрипторы</th><td>Жасмин, цитрус, чёрный чай</td></tr>
+            <tr><th scope="row">Вес упаковки</th><td>250 г</td></tr>
+            <tr><th scope="row">Кислотность</th><td>Высокая</td></tr>
+            <tr><th scope="row">Плотность</th><td>Средняя</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Сравнение тарифов</h2>
+      <div class="table-wrapper">
+        <table class="spec-table">
+          <caption class="spec-table__caption">Варианты покупки</caption>
+          <thead>
+            <tr>
+              <th scope="col">Вариант</th>
+              <th scope="col">Вес</th>
+              <th scope="col">Цена</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Пробник</th><td>100 г</td><td>550 ₽</td></tr>
+            <tr><th scope="row">Стандарт</th><td>250 г</td><td>1 200 ₽</td></tr>
+            <tr><th scope="row">Выгодно</th><td>1 кг</td><td>4 200 ₽</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">©Учебный проект.</p>
+      <p class="site-footer__author">Чумак Артём, ЭФБО-09-25</p>
+    </div>
+  </footer>
+
+  <a href="#" class="to-top" aria-label="Наверх">↑</a>
+
+  <dialog class="order-dialog" id="orderDialog" aria-labelledby="orderDialogTitle">
+    <form class="order-form" method="dialog" id="orderForm" novalidate>
+      <h2 class="order-form__title" id="orderDialogTitle">Оставить заявку</h2>
+      <div class="order-form__field">
+        <label for="modal-name">Имя *</label>
+        <input type="text" id="modal-name" name="name" required minlength="2">
+      </div>
+      <div class="order-form__field">
+        <label for="modal-email">E-mail *</label>
+        <input type="email" id="modal-email" name="email" required>
+      </div>
+      <div class="order-form__field">
+        <label for="modal-phone">Телефон *</label>
+        <input type="tel" id="modal-phone" name="phone" required>
+      </div>
+      <div class="order-form__field order-form__field--checkbox">
+        <input type="checkbox" id="modal-agree" name="agree" required>
+        <label for="modal-agree">Согласен с обработкой данных *</label>
+      </div>
+      <div class="order-form__actions">
+        <button type="submit" class="button button--primary">Отправить</button>
+        <button type="button" class="button button--ghost" data-close-order>Отмена</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="success-message" id="successMessage" hidden>
+    Спасибо! Заявка отправлена.
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // Получаем модальное окно по id.
 const orderDialog = document.getElementById('order-dialog');
 
-// Получаем все кнопки заказа в карточках товаров.
+// Получаем все кнопки заказа в карточках товаров (БЭМ-элемент product-card__button).
 const orderButtons = document.querySelectorAll('.product-card__button');
 
 // Получаем кнопку закрытия модального окна.

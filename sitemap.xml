@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Tensa1ka.github.io/kr1-html-css-shop/</loc>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/</loc>
   </url>
   <url>
-    <loc>https://Tensa1ka.github.io/kr1-html-css-shop/catalog.html</loc>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/catalog.html</loc>
   </url>
   <url>
-    <loc>https://Tensa1ka.github.io/kr1-html-css-shop/contacts.html</loc>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/delivery.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/contacts.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/order.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-1.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-2.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-3.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/category-popular.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-4.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-5.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-6.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-7.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-8.html</loc>
+  </url>
+  <url>
+    <loc>https://anesha-git.github.io/kr1-html-css-shop/product-9.html</loc>
   </url>
 </urlset>

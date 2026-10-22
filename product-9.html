@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Подробная карточка товара: Товар 9. Описание, характеристики и отзывы.">
+  <title>Товар 9 – Учебный интернет-магазин</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/top.js" defer></script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Учебный интернет-магазин">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:image" content="https://anesha-git.github.io/kr1-html-css-shop/images/preview.jpg">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="delivery.html">Доставка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+      <span class="breadcrumbs__current">Товар 9</span>
+    </nav>
+
+    <article class="product">
+      <div class="product__media" role="img" aria-label="Изображение товара: Товар 9">
+        <span class="product__media-text">Товар 9</span>
+      </div>
+
+      <div class="product__info">
+        <p class="product__badge product__badge--hit">Лучший выбор</p>
+        <h1 class="product__title">Товар 9</h1>
+
+        <p class="product__rating">
+          <span class="rating" role="img" aria-label="Средняя оценка 4,7 из 5">★★★★★</span>
+          4,7 · <a class="product__rating-link" href="#reviews">3 отзыва</a>
+        </p>
+
+        <p class="product__price-row">
+          <span class="product__price">3000 руб.</span>
+        </p>
+
+        <p class="product__lead">Максимальная комплектация с самой длинной гарантией в нашем каталоге.</p>
+
+        <ul class="product__facts">
+          <li class="product__fact">Наличие: в наличии</li>
+          <li class="product__fact">Доставка по России от 1 до 10 дней</li>
+          <li class="product__fact">Возврат в течение 14 дней</li>
+        </ul>
+
+        <div class="product__actions">
+          <a class="button button--primary" href="order.html">Заказать</a>
+          <a class="button button--secondary" href="catalog.html">Назад в каталог</a>
+        </div>
+      </div>
+    </article>
+
+    <section class="section" aria-labelledby="product-description-title">
+      <h2 class="section__title" id="product-description-title">Описание</h2>
+      <p>Товар 9 — флагман линейки. В нём собрано всё лучшее: прочные материалы, полная комплектация и гарантия 36 месяцев.</p>
+      <p>Подойдёт тем, кто выбирает один раз и надолго. Доставка по России, возврат в течение 14 дней.</p>
+    </section>
+
+    <section class="section" aria-labelledby="product-specs-title">
+      <h2 class="section__title" id="product-specs-title">Характеристики</h2>
+      <table class="data-table" aria-labelledby="product-specs-title">
+        <tbody>
+          <tr>
+            <th class="data-table__head" scope="row">Артикул</th>
+            <td class="data-table__cell">SP-009</td>
+          </tr>
+          <tr>
+            <th class="data-table__head" scope="row">Категория</th>
+            <td class="data-table__cell">Популярные</td>
+          </tr>
+          <tr>
+            <th class="data-table__head" scope="row">Наличие</th>
+            <td class="data-table__cell">В наличии</td>
+          </tr>
+          <tr>
+            <th class="data-table__head" scope="row">Гарантия</th>
+            <td class="data-table__cell">36 месяцев</td>
+          </tr>
+          <tr>
+            <th class="data-table__head" scope="row">Вес</th>
+            <td class="data-table__cell">1,5 кг</td>
+          </tr>
+          <tr>
+            <th class="data-table__head" scope="row">Страна производства</th>
+            <td class="data-table__cell">Россия</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <h2 class="section__title" id="reviews-title">Отзывы покупателей</h2>
+
+      <div class="reviews__summary">
+        <p class="reviews__score">4,7</p>
+        <div class="reviews__summary-text">
+          <span class="rating" role="img" aria-label="Средняя оценка 4,7 из 5">★★★★★</span>
+          <p class="reviews__count">На основе 3 отзывов</p>
+        </div>
+      </div>
+
+      <ul class="reviews__list">
+        <li class="reviews__item">
+          <article class="review">
+            <header class="review__header">
+              <h3 class="review__author">Андрей Р.</h3>
+              <time class="review__date" datetime="2026-09-16">16 сентября 2026</time>
+            </header>
+            <p class="review__rating-row">
+              <span class="rating" role="img" aria-label="Оценка 5 из 5">★★★★★</span>
+            </p>
+            <p class="review__text">Это лучшее, что я заказывал из каталога. Чувствуется качество на каждом шаге.</p>
+          </article>
+        </li>
+        <li class="reviews__item">
+          <article class="review">
+            <header class="review__header">
+              <h3 class="review__author">Полина С.</h3>
+              <time class="review__date" datetime="2026-09-30">30 сентября 2026</time>
+            </header>
+            <p class="review__rating-row">
+              <span class="rating" role="img" aria-label="Оценка 5 из 5">★★★★★</span>
+            </p>
+            <p class="review__text">Гарантия в три года — серьёзный аргумент. Цена оправдана полностью.</p>
+          </article>
+        </li>
+        <li class="reviews__item">
+          <article class="review">
+            <header class="review__header">
+              <h3 class="review__author">Михаил Х.</h3>
+              <time class="review__date" datetime="2026-10-14">14 октября 2026</time>
+            </header>
+            <p class="review__rating-row">
+              <span class="rating" role="img" aria-label="Оценка 4 из 5">★★★★☆</span>
+            </p>
+            <p class="review__text">Отличный товар, но цена всё-таки кусается. Качеством доволен.</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх">&uarr;</button>
+</body>
+</html>

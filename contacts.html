@@ -6,11 +6,12 @@
   <meta name="description" content="Контактная информация учебного интернет-магазина.">
   <title>Контакты – Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/top.js" defer></script>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Учебный интернет-магазин">
   <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-  <meta property="og:image" content="https://Tensa1ka.github.io/kr1-html-css-shop/images/preview.jpg">
+  <meta property="og:image" content="https://anesha-git.github.io/kr1-html-css-shop/images/preview.jpg">
 </head>
 <body>
   <header class="site-header">
@@ -26,7 +27,13 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="delivery.html">Доставка</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
@@ -64,9 +71,9 @@
     <section class="section" id="feedback">
       <h2 class="section__title">Обратная связь</h2>
       <p>
-        Для отправки заявки используйте форму в модальном окне на главной странице.
+        Для отправки заявки используйте форму на странице оформления заявки.
       </p>
-      <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
+      <a class="button button--primary" href="order.html">Перейти к форме</a>
     </section>
   </main>
 
@@ -74,5 +81,6 @@
     <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
     <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Наверх">&uarr;</button>
 </body>
 </html>

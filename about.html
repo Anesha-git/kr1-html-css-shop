@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О нас — Finlog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Finlog</a>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="about.html" class="active">О нас</a>
+        <a href="news.html" title="Избранное">★ <span id="fav-count">0</span></a>
+        <button id="theme-btn">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h2>О нас</h2>
+    <p>
+      Finlog — это учебный сайт о финансах и рынках. Наша цель — объяснять
+      сложные вещи простым языком: от инфляции до криптовалют. Здесь можно
+      прочитать короткие статьи и воспользоваться полезными калькуляторами.
+    </p>
+
+    <h2>Частые вопросы</h2>
+    <details>
+      <summary>Это инвестиционная рекомендация?</summary>
+      <p>Нет. Все материалы на сайте носят информационный характер и не являются советом купить или продать какой-либо актив. Перед тем как вкладывать деньги, оцените свои риски и при необходимости посоветуйтесь со специалистом.</p>
+    </details>
+    <details>
+      <summary>Откуда берутся данные?</summary>
+      <p>Это учебный проект, поэтому цены, курсы и значения на графиках примерные и нужны только для демонстрации. Для реальных решений используйте данные бирж и официальных источников.</p>
+    </details>
+    <details>
+      <summary>Как часто выходят новые статьи?</summary>
+      <p>Примерно раз в неделю. Мы стараемся разбирать одну тему подробно, а не публиковать много коротких заметок. Новые материалы появляются в разделе «Новости», а подписчики рассылки узнают о них первыми.</p>
+    </details>
+    <details>
+      <summary>Нужно ли платить за доступ к сайту?</summary>
+      <p>Нет, все статьи и инструменты бесплатны и не требуют регистрации. Вы можете пользоваться калькуляторами и читать материалы без ограничений, а подписка на рассылку необязательна.</p>
+    </details>
+    <details>
+      <summary>Как пользоваться калькулятором сложного процента?</summary>
+      <p>Введите начальную сумму, годовую доходность и срок в годах, затем нажмите «Посчитать». Сайт покажет итоговую сумму с учётом того, что проценты каждый год начисляются и на прошлые проценты. Результат приблизительный и не учитывает налоги и комиссии.</p>
+    </details>
+    <details>
+      <summary>Как предложить тему для статьи?</summary>
+      <p>Напишите нам через форму обратной связи внизу страницы или в любой из соцсетей. Мы читаем все сообщения и стараемся отвечать в течение нескольких дней. Самые интересные темы обязательно попадут в разбор.</p>
+    </details>
+
+    <h2>Наша миссия</h2>
+    <p>
+      Сделать финансовую грамотность доступной каждому. Мы верим, что разбираться
+      в деньгах может любой человек, если объяснять без сложных терминов.
+    </p>
+
+    <h2>Команда</h2>
+    <div class="grid">
+      <div class="card team">
+        <img class="avatar-img" src="img/alex.jpg" alt="Алекс">
+        <h3>Алекс</h3>
+        <p>Автор и редактор</p>
+      </div>
+      <div class="card team">
+        <img class="avatar-img" src="img/maria.jpg" alt="Мария">
+        <h3>Мария</h3>
+        <p>Аналитик рынков</p>
+      </div>
+      <div class="card team">
+        <img class="avatar-img" src="img/dmitry.jpg" alt="Дмитрий">
+        <h3>Дмитрий</h3>
+        <p>Разработчик сайта</p>
+      </div>
+    </div>
+
+    <h2>История проекта</h2>
+    <ul class="timeline">
+      <li><b>Сентябрь 2026</b> — появилась идея сделать простой сайт о финансах</li>
+      <li><b>Октябрь 2026</b> — вышли первые статьи про крипту, акции и макроэкономику</li>
+      <li><b>Ноябрь 2026</b> — добавили калькуляторы, график цен и избранное</li>
+    </ul>
+
+    <h2>Мы в соцсетях</h2>
+    <div class="socials">
+      <a href="#"><span class="icon">✈️</span>Telegram</a>
+      <a href="#"><span class="icon">📷</span>Instagram</a>
+      <a href="#"><span class="icon">▶️</span>YouTube</a>
+      <a href="#"><span class="icon">💻</span>GitHub</a>
+    </div>
+
+    <h2>Связаться с нами</h2>
+    <form id="contact-form">
+      <label for="name">Имя</label>
+      <input type="text" id="name" required>
+
+      <label for="msg">Сообщение</label>
+      <textarea id="msg" rows="4" required></textarea>
+
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+
+    <h2>Как нас найти</h2>
+    <p>
+      Адрес офиса: г. Москва, Пресненская наб., 12<br>
+      Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>
+      Время работы: Пн–Пт, 10:00–18:00
+    </p>
+    <div class="map-box">
+      <iframe
+        title="Карта: г. Москва, Пресненская наб., 12"
+        src="https://maps.google.com/maps?q=Москва,+Пресненская+набережная,+12&hl=ru&z=16&output=embed"
+        loading="lazy"
+        allowfullscreen></iframe>
+    </div>
+
+  </main>
+
+  <!-- Модальное окно подписки -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      <h3>Подписка на рассылку</h3>
+      <form id="modal-form">
+        <label for="m-name">Имя</label>
+        <input type="text" id="m-name" required>
+
+        <label for="m-email">Email</label>
+        <input type="email" id="m-email" placeholder="name@mail.com" required>
+
+        <label for="m-freq">Как часто присылать</label>
+        <select id="m-freq">
+          <option>Раз в неделю</option>
+          <option>Раз в две недели</option>
+          <option>Раз в месяц</option>
+        </select>
+
+        <label>Интересные темы</label>
+        <label class="check"><input type="checkbox" checked> Крипта</label>
+        <label class="check"><input type="checkbox"> Акции</label>
+        <label class="check"><input type="checkbox"> Макроэкономика</label>
+
+        <label class="check"><input type="checkbox" required> Согласен на обработку данных</label>
+
+        <button type="submit" class="btn">Подписаться</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <b>Finlog</b>
+        <p>Финансы простым языком. Статьи, калькуляторы и графики для тех, кто начинает разбираться в рынках.</p>
+      </div>
+      <div>
+        <b>Разделы</b>
+        <a href="news.html">Новости</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="about.html">О нас</a>
+      </div>
+      <div>
+        <b>Контакты</b>
+        <p>Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>Email: info@finlog.example<br>Пн–Пт, 10:00–18:00<br>Адрес: г. Москва, Пресненская наб., 12</p>
+        <button class="btn open-modal">Подписаться на рассылку</button>
+      </div>
+    </div>
+    <div class="container">© 2026 Finlog. Все права защищены.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новости — Finlog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Finlog</a>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="news.html" class="active">Новости</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="about.html">О нас</a>
+        <a href="news.html" title="Избранное">★ <span id="fav-count">0</span></a>
+        <button id="theme-btn">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h2>Новости и статьи</h2>
+
+    <input type="text" id="search" placeholder="Поиск по названию...">
+
+    <div class="filters">
+      <button class="active" data-cat="all">Все</button>
+      <button data-cat="crypto">Крипта</button>
+      <button data-cat="stocks">Акции</button>
+      <button data-cat="macro">Макро</button>
+      <button data-cat="fav">★ Избранное</button>
+    </div>
+
+    <div class="grid">
+      <div class="card post" data-cat="crypto">
+        <span class="tag">Крипта</span>
+        <h3>Что такое халвинг</h3>
+        <p>Раз в четыре года награда майнерам уменьшается вдвое. Рассказываем, к чему это приводит.</p>
+        <p class="full">Халвинг заложен в сам код биткоина: каждые 210 000 блоков награда за новый блок сокращается в два раза. Из-за этого новых монет появляется меньше, а общее предложение ограничено 21 миллионом. Исторически после халвингов цена часто росла, но гарантий это не даёт.</p>
+        <small>2 ноября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="crypto">
+        <span class="tag">Крипта</span>
+        <h3>Стейблкоины: зачем они нужны</h3>
+        <p>Монеты, привязанные к доллару, и их роль на рынке.</p>
+        <p class="full">Стейблкоины, например USDT и USDC, стараются держать цену около одного доллара. Их используют для переводов, как «тихую гавань» во время падения рынка и как основную валюту для торговли на биржах. Главный риск — доверие к тому, кто их выпускает.</p>
+        <small>29 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="stocks">
+        <span class="tag">Акции</span>
+        <h3>Как читать отчётность</h3>
+        <p>Выручка, прибыль и долг — три главных показателя компании.</p>
+        <p class="full">Выручка показывает, сколько компания продала, чистая прибыль — сколько осталось после всех расходов, а долг — насколько она зависит от кредиторов. Сравнивайте показатели с прошлыми периодами и с конкурентами, а не смотрите на цифры по отдельности.</p>
+        <small>26 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="stocks">
+        <span class="tag">Акции</span>
+        <h3>Дивиденды: что нужно знать</h3>
+        <p>Что такое дивидендная отсечка и почему цена акции падает после неё.</p>
+        <p class="full">Дивиденды — это часть прибыли, которую компания делится с акционерами. Чтобы их получить, нужно владеть акцией на дату отсечки. После неё цена обычно снижается примерно на размер выплаты, поэтому покупать акцию только ради дивидендов не всегда выгодно.</p>
+        <small>20 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="macro">
+        <span class="tag">Макро</span>
+        <h3>Зачем нужна ключевая ставка</h3>
+        <p>Как решения центробанка влияют на кредиты и вклады.</p>
+        <p class="full">Ключевая ставка — это цена денег в экономике. Когда её повышают, кредиты дорожают, а вклады становятся выгоднее, и инфляция замедляется. Когда снижают — наоборот, экономику стимулируют, но растёт риск ускорения цен.</p>
+        <small>15 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="macro">
+        <span class="tag">Макро</span>
+        <h3>Что такое инфляция</h3>
+        <p>Почему деньги дешевеют и как от этого защититься.</p>
+        <p class="full">Инфляция — это рост общего уровня цен: на одну и ту же сумму со временем можно купить меньше. Защищаются от неё вложениями, доходность которых выше инфляции: вклады, облигации, акции, недвижимость.</p>
+        <small>8 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="crypto">
+        <span class="tag">Крипта</span>
+        <h3>Как хранить криптовалюту</h3>
+        <p>Горячие и холодные кошельки: в чём разница и что выбрать.</p>
+        <p class="full">Горячий кошелёк подключён к интернету, им удобно пользоваться, но он уязвимее для взлома. Холодный кошелёк хранит ключи офлайн и подходит для долгого хранения. Главное правило: никому не сообщать seed-фразу и хранить её не в телефоне, а на бумаге.</p>
+        <small>1 октября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="stocks">
+        <span class="tag">Акции</span>
+        <h3>Что такое ETF</h3>
+        <p>Один фонд вместо десятков отдельных акций.</p>
+        <p class="full">ETF — это биржевой фонд, который повторяет состав индекса, например S&amp;P 500. Купив одну бумагу, вы получаете долю сразу во многих компаниях. Это проще и дешевле, чем собирать портфель вручную, а риск распределяется между разными эмитентами.</p>
+        <small>24 сентября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="macro">
+        <span class="tag">Макро</span>
+        <h3>Что такое ВВП</h3>
+        <p>Главный показатель размера экономики страны.</p>
+        <p class="full">ВВП — это стоимость всех товаров и услуг, произведённых в стране за год. По его росту или падению судят о состоянии экономики. Чтобы сравнивать страны, часто используют ВВП на душу населения, потому что он учитывает размер населения.</p>
+        <small>17 сентября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+
+      <div class="card post" data-cat="crypto">
+        <span class="tag">Крипта</span>
+        <h3>Что такое DeFi</h3>
+        <p>Децентрализованные финансы без банков и посредников.</p>
+        <p class="full">DeFi — это сервисы для займов, обмена и накоплений, которые работают на смарт-контрактах, а не через банк. Любой человек с кошельком может ими пользоваться. Плюсы — открытость и доступность, минусы — ошибки в коде контрактов и отсутствие защиты вкладчиков.</p>
+        <small>10 сентября 2026 · Автор: Алекс</small>
+        <button class="more-btn">Читать далее</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Модальное окно подписки -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      <h3>Подписка на рассылку</h3>
+      <form id="modal-form">
+        <label for="m-name">Имя</label>
+        <input type="text" id="m-name" required>
+
+        <label for="m-email">Email</label>
+        <input type="email" id="m-email" placeholder="name@mail.com" required>
+
+        <label for="m-freq">Как часто присылать</label>
+        <select id="m-freq">
+          <option>Раз в неделю</option>
+          <option>Раз в две недели</option>
+          <option>Раз в месяц</option>
+        </select>
+
+        <label>Интересные темы</label>
+        <label class="check"><input type="checkbox" checked> Крипта</label>
+        <label class="check"><input type="checkbox"> Акции</label>
+        <label class="check"><input type="checkbox"> Макроэкономика</label>
+
+        <label class="check"><input type="checkbox" required> Согласен на обработку данных</label>
+
+        <button type="submit" class="btn">Подписаться</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <b>Finlog</b>
+        <p>Финансы простым языком. Статьи, калькуляторы и графики для тех, кто начинает разбираться в рынках.</p>
+      </div>
+      <div>
+        <b>Разделы</b>
+        <a href="news.html">Новости</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="about.html">О нас</a>
+      </div>
+      <div>
+        <b>Контакты</b>
+        <p>Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>Email: info@finlog.example<br>Пн–Пт, 10:00–18:00<br>Адрес: г. Москва, Пресненская наб., 12</p>
+        <button class="btn open-modal">Подписаться на рассылку</button>
+      </div>
+    </div>
+    <div class="container">© 2026 Finlog. Все права защищены.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

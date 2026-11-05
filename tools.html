@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструменты — Finlog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Finlog</a>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="news.html">Новости</a>
+        <a href="tools.html" class="active">Инструменты</a>
+        <a href="about.html">О нас</a>
+        <a href="news.html" title="Избранное">★ <span id="fav-count">0</span></a>
+        <button id="theme-btn">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <h2>Калькулятор сложного процента</h2>
+    <div class="card">
+      <form id="calc-form">
+        <label for="start">Начальная сумма, $</label>
+        <input type="number" id="start" value="1000" min="0" required>
+
+        <label for="rate">Доходность в год, %</label>
+        <input type="number" id="rate" value="10" min="0" step="0.1" required>
+
+        <label for="years">Срок, лет</label>
+        <input type="number" id="years" value="5" min="1" required>
+
+        <button type="submit" class="btn">Посчитать</button>
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <h2>Калькулятор прибыли от сделки</h2>
+    <div class="card">
+      <form id="profit-form">
+        <label for="p-buy">Цена покупки, $</label>
+        <input type="number" id="p-buy" value="60000" min="0" step="any" required>
+
+        <label for="p-sell">Цена продажи, $</label>
+        <input type="number" id="p-sell" value="68400" min="0" step="any" required>
+
+        <label for="p-amount">Количество</label>
+        <input type="number" id="p-amount" value="0.1" min="0" step="any" required>
+
+        <label for="p-fee">Комиссия биржи, %</label>
+        <input type="number" id="p-fee" value="0.1" min="0" step="any" required>
+
+        <button type="submit" class="btn">Рассчитать</button>
+      </form>
+      <div id="profit-result"></div>
+    </div>
+
+    <h2>Конвертер валют</h2>
+    <div class="card">
+      <form id="conv-form">
+        <label for="conv-amount">Сумма</label>
+        <input type="number" id="conv-amount" value="100" min="0" step="any" required>
+
+        <label for="conv-from">Из валюты</label>
+        <select id="conv-from">
+          <option value="USD">USD — доллар</option>
+          <option value="EUR">EUR — евро</option>
+          <option value="GBP">GBP — фунт</option>
+          <option value="CZK">CZK — чешская крона</option>
+          <option value="RUB">RUB — рубль</option>
+        </select>
+
+        <label for="conv-to">В валюту</label>
+        <select id="conv-to">
+          <option value="EUR">EUR — евро</option>
+          <option value="USD">USD — доллар</option>
+          <option value="GBP">GBP — фунт</option>
+          <option value="CZK">CZK — чешская крона</option>
+          <option value="RUB">RUB — рубль</option>
+        </select>
+
+        <button type="submit" class="btn">Конвертировать</button>
+      </form>
+      <div id="conv-result"></div>
+      <small style="color: var(--muted)">Курсы примерные.</small>
+    </div>
+
+    <h2>График цены за неделю</h2>
+    <label for="chart-asset">Выберите валюту</label>
+    <select id="chart-asset">
+      <option value="BTC">Bitcoin (BTC)</option>
+      <option value="ETH">Ethereum (ETH)</option>
+      <option value="SOL">Solana (SOL)</option>
+      <option value="BNB">BNB</option>
+      <option value="XRP">XRP</option>
+      <option value="EUR">Евро (EUR)</option>
+      <option value="CZK">Чешская крона (CZK)</option>
+      <option value="RUB">Рубль (RUB)</option>
+    </select>
+    <div class="chart-box">
+      <canvas id="price-chart"></canvas>
+    </div>
+
+    <h2>Топ-10 активов</h2>
+    <p style="color: var(--muted)">Нажмите на «Цена», чтобы отсортировать. Данные примерные.</p>
+    <table id="assets">
+      <thead>
+        <tr>
+          <th>Актив</th>
+          <th id="sort-price">Цена ↕</th>
+          <th>За сутки</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-price="68400"><td>Bitcoin</td><td>$68 400</td><td class="up">+1.2%</td></tr>
+        <tr data-price="2450"><td>Ethereum</td><td>$2 450</td><td class="down">−0.6%</td></tr>
+        <tr data-price="1"><td>Tether (USDT)</td><td>$1</td><td>0.0%</td></tr>
+        <tr data-price="590"><td>BNB</td><td>$590</td><td class="up">+0.8%</td></tr>
+        <tr data-price="165"><td>Solana</td><td>$165</td><td class="up">+2.4%</td></tr>
+        <tr data-price="0.55"><td>XRP</td><td>$0.55</td><td class="down">−1.1%</td></tr>
+        <tr data-price="0.16"><td>Dogecoin</td><td>$0.16</td><td class="up">+3.0%</td></tr>
+        <tr data-price="5820"><td>S&amp;P 500</td><td>$5 820</td><td class="up">+0.3%</td></tr>
+        <tr data-price="20400"><td>Nasdaq 100</td><td>$20 400</td><td class="up">+0.5%</td></tr>
+        <tr data-price="2700"><td>Золото (унция)</td><td>$2 700</td><td class="up">+0.1%</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Словарь терминов</h2>
+    <input type="text" id="term-search" placeholder="Найти термин...">
+    <table id="terms">
+      <thead>
+        <tr><th>Термин</th><th>Что это значит</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Бычий рынок</td><td>Период, когда цены растут и инвесторы настроены оптимистично.</td></tr>
+        <tr><td>Медвежий рынок</td><td>Период длительного падения цен и пессимизма на рынке.</td></tr>
+        <tr><td>Волатильность</td><td>Насколько сильно и быстро меняется цена актива.</td></tr>
+        <tr><td>Ликвидность</td><td>Насколько быстро актив можно продать без сильной потери в цене.</td></tr>
+        <tr><td>Диверсификация</td><td>Распределение денег между разными активами для снижения риска.</td></tr>
+        <tr><td>Капитализация</td><td>Общая рыночная стоимость компании или криптовалюты.</td></tr>
+        <tr><td>Халвинг</td><td>Сокращение вдвое награды за блок в сети биткоина.</td></tr>
+        <tr><td>Стейблкоин</td><td>Криптовалюта, цена которой привязана к обычной валюте, например к доллару.</td></tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <!-- Модальное окно подписки -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      <h3>Подписка на рассылку</h3>
+      <form id="modal-form">
+        <label for="m-name">Имя</label>
+        <input type="text" id="m-name" required>
+
+        <label for="m-email">Email</label>
+        <input type="email" id="m-email" placeholder="name@mail.com" required>
+
+        <label for="m-freq">Как часто присылать</label>
+        <select id="m-freq">
+          <option>Раз в неделю</option>
+          <option>Раз в две недели</option>
+          <option>Раз в месяц</option>
+        </select>
+
+        <label>Интересные темы</label>
+        <label class="check"><input type="checkbox" checked> Крипта</label>
+        <label class="check"><input type="checkbox"> Акции</label>
+        <label class="check"><input type="checkbox"> Макроэкономика</label>
+
+        <label class="check"><input type="checkbox" required> Согласен на обработку данных</label>
+
+        <button type="submit" class="btn">Подписаться</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <b>Finlog</b>
+        <p>Финансы простым языком. Статьи, калькуляторы и графики для тех, кто начинает разбираться в рынках.</p>
+      </div>
+      <div>
+        <b>Разделы</b>
+        <a href="news.html">Новости</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="about.html">О нас</a>
+      </div>
+      <div>
+        <b>Контакты</b>
+        <p>Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a><br>Email: info@finlog.example<br>Пн–Пт, 10:00–18:00<br>Адрес: г. Москва, Пресненская наб., 12</p>
+        <button class="btn open-modal">Подписаться на рассылку</button>
+      </div>
+    </div>
+    <div class="container">© 2026 Finlog. Все права защищены.</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -6,7 +6,11 @@ if (localStorage.getItem("theme") === "dark") {
 }
 
 themeBtn.addEventListener("click", function () {
+  document.body.classList.add("theme-anim");
   document.body.classList.toggle("dark");
+  setTimeout(function () {
+    document.body.classList.remove("theme-anim");
+  }, 450);
   if (document.body.classList.contains("dark")) {
     localStorage.setItem("theme", "dark");
   } else {
@@ -407,3 +411,294 @@ window.addEventListener("scroll", function () {
 toTop.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// ---------- Мини-тесты ----------
+// небольшой помощник: создаёт элемент с текстом (безопаснее, чем innerHTML)
+function make(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text) {
+    node.textContent = text;
+  }
+  if (className) {
+    node.className = className;
+  }
+  return node;
+}
+
+const quizBox = document.getElementById("quiz-box");
+if (quizBox) {
+  let quiz = null;
+  let quizKey = "";
+  let step = 0;
+  let score = 0;
+
+  function startQuiz(key) {
+    quizKey = key;
+    quiz = QUIZZES[key];
+    step = 0;
+    score = 0;
+    showQuestion();
+  }
+
+  function showQuestion() {
+    const q = quiz.questions[step];
+    const total = quiz.questions.length;
+    quizBox.style.display = "block";
+    quizBox.innerHTML = "";
+    quizBox.appendChild(make("small", "Тест «" + quiz.title + "» · вопрос " + (step + 1) + " из " + total));
+    quizBox.appendChild(make("h3", q.q));
+
+    const buttons = [];
+    const note = make("p", "", "quiz-note");
+    const nextBtn = make("button", step === total - 1 ? "Показать результат" : "Дальше", "btn");
+    nextBtn.style.display = "none";
+
+    // перемешиваем варианты, чтобы верный ответ не был всегда первым
+    const options = q.options.map(function (text, i) {
+      return { text: text, correct: i === q.answer };
+    });
+    options.sort(function () {
+      return Math.random() - 0.5;
+    });
+
+    let rightBtn = null;
+    options.forEach(function (opt) {
+      const btn = make("button", opt.text, "quiz-option");
+      buttons.push(btn);
+      if (opt.correct) {
+        rightBtn = btn;
+      }
+
+      btn.addEventListener("click", function () {
+        buttons.forEach(function (b) {
+          b.disabled = true;
+        });
+        if (opt.correct) {
+          score++;
+          btn.classList.add("right");
+          note.textContent = "Верно! " + q.explain;
+        } else {
+          btn.classList.add("wrong");
+          rightBtn.classList.add("right");
+          note.textContent = "Не совсем. " + q.explain;
+        }
+        nextBtn.style.display = "inline-block";
+      });
+      quizBox.appendChild(btn);
+    });
+
+    nextBtn.addEventListener("click", function () {
+      step++;
+      if (step < total) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    });
+    quizBox.appendChild(note);
+    quizBox.appendChild(nextBtn);
+  }
+
+  function showResult() {
+    quizBox.innerHTML = "";
+    quizBox.appendChild(make("h3", "Ваш результат: " + score + " из " + quiz.questions.length));
+
+    let comment = "Стоит почитать наши статьи и попробовать ещё раз.";
+    if (score >= 4) {
+      comment = "Отличный результат!";
+    } else if (score === 3) {
+      comment = "Неплохо, но есть что повторить.";
+    }
+    quizBox.appendChild(make("p", comment, "quiz-note"));
+
+    const again = make("button", "Пройти ещё раз", "btn");
+    again.addEventListener("click", function () {
+      startQuiz(quizKey);
+    });
+    quizBox.appendChild(again);
+  }
+
+  // выбор темы теста
+  document.querySelectorAll(".quiz-topics button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".quiz-topics button").forEach(function (b) {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+      startQuiz(btn.dataset.quiz);
+    });
+  });
+}
+
+// ---------- Калькулятор инфляции ----------
+// подбирает правильную форму слова: 1 год, 2 года, 5 лет
+function yearsWord(n) {
+  const last = n % 10;
+  const lastTwo = n % 100;
+  if (last === 1 && lastTwo !== 11) {
+    return "год";
+  }
+  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) {
+    return "года";
+  }
+  return "лет";
+}
+
+const inflForm = document.getElementById("infl-form");
+if (inflForm) {
+  inflForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const sum = Number(document.getElementById("i-sum").value);
+    const rate = Number(document.getElementById("i-rate").value);
+    const years = Number(document.getElementById("i-years").value);
+
+    // во сколько раз вырастут цены за срок
+    const factor = Math.pow(1 + rate / 100, years);
+    const future = sum * factor; // столько будет стоить то, что сегодня стоит sum
+    const worth = sum / factor; // столько сегодняшних денег будет стоить sum через годы
+    const lost = (1 - 1 / factor) * 100;
+
+    const money = function (n) {
+      return Math.round(n).toLocaleString("ru-RU") + " ₽";
+    };
+    const period = years + " " + yearsWord(years);
+
+    const result = document.getElementById("infl-result");
+    result.innerHTML = "";
+    result.appendChild(make("p", "Через " + period + " то, что сегодня стоит " + money(sum) + ", будет стоить около " + money(future) + "."));
+    result.appendChild(make("p", "Ваши " + money(sum) + " через " + period + " будут равны по покупательной способности примерно " + money(worth) + " в сегодняшних ценах (потеря " + lost.toFixed(1) + "%)."));
+  });
+}
+
+// ---------- Календарь событий: ответ даёт нейросеть через server.js ----------
+const dayForm = document.getElementById("day-form");
+if (dayForm) {
+  const dayInput = document.getElementById("day-date");
+  const dayResult = document.getElementById("day-result");
+
+  // по умолчанию сегодняшняя дата, дату из будущего выбрать нельзя
+  const now = new Date();
+  const todayIso =
+    now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  dayInput.max = todayIso;
+  dayInput.value = todayIso;
+
+  function showDay(data) {
+    dayResult.innerHTML = "";
+    const niceDate = new Date(data.date + "T00:00:00").toLocaleDateString("ru-RU", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+    dayResult.appendChild(make("h3", "События " + niceDate));
+
+    const list = make("ul");
+    data.events.forEach(function (text) {
+      list.appendChild(make("li", text));
+    });
+    dayResult.appendChild(list);
+
+    if (data.fresh && data.sources.length > 0) {
+      dayResult.appendChild(make("small", "Использованы материалы из интернета:"));
+      data.sources.forEach(function (s) {
+        if (/^https?:\/\//.test(s.url)) {
+          const link = make("a", s.title || s.url);
+          link.href = s.url;
+          link.target = "_blank";
+          link.rel = "noopener";
+          dayResult.appendChild(link);
+        }
+      });
+    }
+    dayResult.appendChild(
+      make("p", "Ответ сформирован нейросетью GigaChat, возможны неточности: важные даты стоит проверять в других источниках.", "day-note")
+    );
+  }
+
+  dayForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const button = dayForm.querySelector("button");
+    button.disabled = true;
+    dayResult.textContent = "Нейросеть собирает события выбранного дня… это может занять до 30 секунд.";
+
+    fetch("/api/day?date=" + encodeURIComponent(dayInput.value))
+      .then(function (r) {
+        return r.json().then(function (data) {
+          return { ok: r.ok, data: data };
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) {
+          const err = new Error("server");
+          err.serverMessage = res.data.message;
+          throw err;
+        }
+        showDay(res.data);
+      })
+      .catch(function (err) {
+        // если сервер ответил сам, показываем его сообщение
+        dayResult.textContent =
+          err.serverMessage ||
+          "Нейросеть сейчас недоступна. Запустите сайт через server.js с ключом GigaChat (инструкция в README.md).";
+      })
+      .then(function () {
+        button.disabled = false;
+      });
+  });
+}
+
+// ---------- Вопрос эксперту: ответ даёт нейросеть через server.js ----------
+const askForm = document.getElementById("ask-form");
+if (askForm) {
+  const askInput = document.getElementById("ask-q");
+  const askResult = document.getElementById("ask-result");
+
+  askForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const button = askForm.querySelector("button");
+    button.disabled = true;
+    askResult.textContent = "Эксперт думает… это может занять до 30 секунд.";
+
+    fetch("/api/ask?q=" + encodeURIComponent(askInput.value))
+      .then(function (r) {
+        return r.json().then(function (data) {
+          return { ok: r.ok, data: data };
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) {
+          const err = new Error("server");
+          err.serverMessage = res.data.message;
+          throw err;
+        }
+        askResult.innerHTML = "";
+        res.data.answer.split(/\n+/).forEach(function (line) {
+          if (line.trim()) askResult.appendChild(make("p", line.trim()));
+        });
+        if (res.data.fresh && res.data.sources.length > 0) {
+          askResult.appendChild(make("small", "Использованы материалы из интернета:"));
+          res.data.sources.forEach(function (s) {
+            if (/^https?:\/\//.test(s.url)) {
+              const link = make("a", s.title || s.url);
+              link.href = s.url;
+              link.target = "_blank";
+              link.rel = "noopener";
+              askResult.appendChild(link);
+            }
+          });
+        }
+        askResult.appendChild(
+          make("p", "Ответ сформирован нейросетью GigaChat и не является инвестиционной рекомендацией. Возможны неточности.", "day-note")
+        );
+      })
+      .catch(function (err) {
+        askResult.textContent =
+          err.serverMessage ||
+          "Нейросеть сейчас недоступна. Запустите сайт через start.bat с ключом GigaChat.";
+      })
+      .then(function () {
+        button.disabled = false;
+      });
+  });
+}
